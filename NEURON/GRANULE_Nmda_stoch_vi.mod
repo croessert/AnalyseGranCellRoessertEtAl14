@@ -1,5 +1,6 @@
 NEURON {
 	POINT_PROCESS GRANULE_Nmda_stoch_vi
+	POINTER y
 	NONSPECIFIC_CURRENT i
 	RANGE Q10_diff,Q10_channel
 	RANGE g , ic
@@ -53,7 +54,7 @@ UNITS {
 	v0_block = -20 (mV)	: -16 -8.69 (mV)	: -18.69 (mV) : -32.7 (mV)
 	k_block  = 13 (mV)
 	nd	 = 1
-	: kB	 = 0.44	(mM)
+	:kB	 = 0.44	(mM)
 
 	: Diffusion			
 	diffuse	= 1
@@ -83,6 +84,7 @@ ASSIGNED {
 	tzero
 	gbar_Q10 (mho/cm2)
 	Q10 (1)
+	y
 }
 
 STATE {
@@ -145,7 +147,7 @@ BREAKPOINT {
 KINETIC kstates {	
 	:if ( diffuse && (t>tspike[0]) ) { Trelease= T + diffusione() } else { Trelease=T }
 	Trelease = diffusione()
-	rb = Rb * Trelease	:^2 / (Trelease + kB)^2 
+	rb = Rb * Trelease    :^2 / (Trelease + kB)^2 
 	~ C0 <-> C1	(rb*Q10,Ru*Q10) 	: (fattore*rb,Ru) qui 2* per descrizione part.identiche
 	~ C1 <-> C2	(rb*Q10,Ru*Q10)		: (rb,fattore*Ru)	idem
 	~ C2 <-> D	(RdRate*Q10,Rr*Q10)

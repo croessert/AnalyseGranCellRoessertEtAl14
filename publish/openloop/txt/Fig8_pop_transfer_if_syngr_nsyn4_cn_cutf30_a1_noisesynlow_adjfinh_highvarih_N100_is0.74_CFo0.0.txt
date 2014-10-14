@@ -1,0 +1,1 @@
+Variable=0.0, m(CF)=20.5233970116Hz, std(CF)=8.87811592307Hz, max(CF)=47.8943198811Hz, mean(CV)=0.687860712, inh_factor=1 ,m(VAF)=0.912881783667

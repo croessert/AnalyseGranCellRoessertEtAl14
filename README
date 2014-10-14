@@ -1,3 +1,52 @@
-Initial version of Granule cell from: Solinas S., Nieus T, d'Angelo E. (2010) A Realistic Large-Scale Model of the Cerebellum Granular Layer Predicts Circuit Spatio-Temporal Filtering Properties. Front Cell Neurosci. 2010;4:12.
+This contains the models, functions and resulting data as used in:
 
-See http://www.opensourcebrain.org/projects/grancellsolinasetal10 for more details
+Rössert C, Solinas S, D'Angelo E, Dean P and Porrill J (2014) Model cerebellar granule cells can faithfully transmit modulated firing rate signals. Front. Cell. Neurosci. 8:304. doi: 10.3389/fncel.2014.00304
+
+The Model of the Granule cell used is from: Solinas S., Nieus T, d'Angelo E. (2010) A Realistic Large-Scale Model of the Cerebellum Granular Layer Predicts Circuit Spatio-Temporal Filtering Properties. Front Cell Neurosci. 2010;4:12.
+
+
+1. run ./nrncompule to compile .mod files
+
+2. To plot the figures from the saved data files execute the commands below.
+
+3. To run the actual simulations remove the option "--norun"
+
+4. Figures will be saved to: figs/Pub
+
+
+# FIGURE 1
+python Plots_Openloop_Paper_Methods.py -o fig1 --norun
+
+# FIGURE 2:
+python Plots_Openloop_Paper_Methods.py -o fig2 --norun
+
+# FIGURE 3:
+python Plots_Openloop_Paper_Results.py -o fig3 --norun
+
+# FIGURE 4:
+python Plots_Openloop_Paper_Results.py -o fig4 --norun
+
+# FIGURE 5:
+python Plots_Openloop_Paper_Results.py -o fig4b --norun
+
+# FIGURE 6:
+python Plots_Openloop_Paper_Results_syn.py -o fig5 --norun
+
+# FIGURE 7:
+python Plots_Openloop_Paper_Results_syn.py -o fig6 --norun
+
+# FIGURE 8:
+python Plots_Openloop_Paper_Results_syn.py -o fig7 --norun
+
+# FIGURE 9:
+python Plots_Openloop_Paper_Results_syn.py -o fig8b --norun
+
+# FIGURE 10:
+python Plots_Openloop_Paper_Results_syn.py -o fig8a --norun
+
+
+Notes:
+- When running simulations with MPI the number of nodes has to be <= to number of cells, otherwise error is returned.
+
+All analysis scripts were implemented by Christian Rössert
+(christian.a [4t] roessert.de)

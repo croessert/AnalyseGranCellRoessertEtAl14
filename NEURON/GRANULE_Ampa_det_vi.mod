@@ -7,14 +7,14 @@ NEURON {
 	POINT_PROCESS GRANULE_Ampa_det_vi
 	NONSPECIFIC_CURRENT i
 	RANGE Q10_diff,Q10_channel
-	RANGE R, g, ic
+	RANGE R, g, ic,yuno
 	RANGE Cdur, Erev 
 	RANGE r1FIX, r2, r3,r4,r5,gmax,r1,r6,r6FIX,kB
 	RANGE tau_1, tau_rec, tau_facil, U	 
 	RANGE PRE,T,Tmax
 		
 	RANGE diffuse,Trelease,lamd
-	RANGE M,Diff,Rd
+	RANGE M,Diff,Rd,O
 	
 	RANGE tspike
 	RANGE nd, syntype, gmax_factor
@@ -40,8 +40,8 @@ UNITS {
 	gmax		= 1200   (pS)	
 
 	U 			= 0.42 (1) 	< 0, 1 >
-	tau_rec 	= 35.1 (ms) 	< 1e-9, 1e9 > 	 
-	tau_facil 	= 10.8 (ms) 	< 0, 1e9 > 	
+	tau_rec 	= 8 (ms) 	< 1e-9, 1e9 > 	 
+	tau_facil 	= 5 (ms) 	< 0, 1e9 > 	
 
 	M			= 21.515	: numero di (kilo) molecole in una vescicola		
 	Rd			= 1.03 (um)
@@ -58,7 +58,7 @@ UNITS {
 	kB			= 0.44	(mM)
 
 	: Parametri Presinaptici
-	tau_1 		= 3 (ms) 	< 1e-9, 1e9 >
+	tau_1 		= 1 (ms) 	< 1e-9, 1e9 >
 	 
 
 	
@@ -95,6 +95,7 @@ ASSIGNED {
 	tzero
 	gbar_Q10 (mho/cm2)
 	Q10 (1)
+	yuno
 }
 
 STATE {	
@@ -108,6 +109,7 @@ INITIAL {
 	O=0
 	D=0
 	T=0 (mM)
+	yuno = 0
 	numpulses=0
 	Trelease=0 (mM)
 	tspike[0]=1e12	(ms)
@@ -137,7 +139,7 @@ INITIAL {
 FUNCTION diffusione(){	 
 	LOCAL DifWave,i,cntc,fi
 	DifWave=0
-	cntc=imax(numpulses-5,0)
+	cntc=imax(numpulses-100,0)
 	FROM i=cntc  TO numpulses{
 	    :printf ("%g %g  ",numpulses,fmod(numpulses,10))
 	    fi=fmod(i,100)
@@ -165,7 +167,7 @@ KINETIC kstates {
 	r1 = r1FIX * Trelease^2 / (Trelease + kB)^2
 	r6 = r6FIX * Trelease^2 / (Trelease + kB)^2
 	~ C  <-> O	(r1*Q10,r2*Q10)
-	~ O  <-> D	(r3*Q10,r4*Q10)
+	:~ O  <-> D	(r3*Q10,r4*Q10)
 	~ D  <-> C	(r5*Q10,r6*Q10)
 	CONSERVE C+O+D = 1
 }
@@ -205,6 +207,7 @@ INITIAL {
 			y = y + x * u
 			
 			T=Tmax*y
+			yuno = y
 			fi=fmod(numpulses,100)
 			PRE[fi]=y	: PRE[numpulses]=y
 			

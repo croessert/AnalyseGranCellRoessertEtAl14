@@ -48,7 +48,7 @@ INITIAL {
 }
 
 BREAKPOINT {
-    SOLVE conc METHOD derivimplicit
+    SOLVE conc METHOD cnexp
     ic = beta*(cai-cai0)
 }
 

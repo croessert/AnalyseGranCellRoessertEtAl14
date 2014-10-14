@@ -67,7 +67,7 @@ INITIAL {
 } 
  
 BREAKPOINT { 
-	SOLVE states METHOD derivimplicit 
+	SOLVE states METHOD cnexp 
 	g = gbar_Q10*n 
 	ik = g*(v - ek) 
 	ic = ik

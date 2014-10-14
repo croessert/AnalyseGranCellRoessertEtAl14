@@ -1,0 +1,1 @@
+Variable=40, m(CF)=NoneHz, std(CF)=NoneHz, max(CF)=NoneHz, mean(CV)=None, inh_factor=1 ,m(VAF)=0.953149585282

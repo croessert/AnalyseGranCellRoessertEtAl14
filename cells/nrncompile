@@ -1,0 +1,3 @@
+#! /bin/bash
+
+nrnivmodl ./ ./Diwakar/GrC/ ./GranuleCellVSCS/NEURON

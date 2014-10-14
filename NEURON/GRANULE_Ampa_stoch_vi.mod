@@ -16,7 +16,7 @@ NEURON {
 	RANGE M,Diff,Rd
 	
 	RANGE tspike
-	RANGE nd, syntype, gmax_factor
+	RANGE nd, syntype, gmax_factor,O
 	RANGE T_factor, kB_factor
 }
 

@@ -80,7 +80,7 @@ INITIAL {
 } 
  
 BREAKPOINT { 
-	SOLVE states METHOD derivimplicit 
+	SOLVE states METHOD cnexp 
 	g = gbar_Q10*s*s*u 
 	ica = g*(v - eca) 
 	ic = ica

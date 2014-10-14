@@ -31,13 +31,13 @@ UNITS {
 	Q10_diff	= 1.5
 	Q10_channel	= 2.4
 	U 		= 0.42 (1) 	< 0, 1 >
-	tau_rec 	= 35.1 (ms) 	< 1e-9, 1e9 > 	 
-	tau_facil 	= 10.8 (ms) 	< 0, 1e9 > 	
+	tau_rec 	= 8 (ms) 	< 1e-9, 1e9 > 	 
+	tau_facil 	= 5 (ms) 	< 0, 1e9 > 	
 
 	M	= 21.515	: numero di (kilo) molecole in una vescicola		
 	Rd	= 1.03 (um)
 	Diff	= 0.223 (um2/ms)
-	tau_1 	= 3 (ms) 	< 1e-9, 1e9 >
+	tau_1 	= 1 (ms) 	< 1e-9, 1e9 >
 
 	u0 		= 0 (1) < 0, 1 >
 	Tmax		= 1  	(mM)
